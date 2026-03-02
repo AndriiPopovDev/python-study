@@ -8,3 +8,4 @@ class Dog():
 
     def sit(self):
         """Simulate a dog sitting in response to a command"""
+        print(f"{self.name.title()} is now sitting")
