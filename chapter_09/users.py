@@ -4,14 +4,15 @@ class User():
                 first_name,
                 last_name,
                 username,
-                id='',
-                mail='',):
+                id,
+                mail,):
         
         self.first_name = first_name.title()
         self.last_name = last_name.title()
         self.username = username
         self.id = id
         self.mail = mail
+        self.loggin_attempts = 0
 
     def describe_user(self):
         print(f"\nName: {self.first_name} {self.last_name}")
@@ -21,13 +22,26 @@ class User():
     
     def greet_user(self):
         print(f"\nWerlcome back, {self.first_name} {self.last_name}!")
+
+    def increment_loggin_attempts(self):
+        self.loggin_attempts += 1
+
+    def reset_loggin_attempts(self):
+        self.loggin_attempts = 0
         
 
 users = [User('alina', 'chernish', 'alicher', '150', 'alina@gmail.com'),
          User('andrii', 'popov', 'andriP', '151', 'andrii@gmail.com'),
          User('vlad', 'romanov', 'romashka', '152', 'vlad@gmail.com')]
 
-for user in users:
-    user.describe_user()
-    user.greet_user()
-    print('\n')
+
+users[0].describe_user()
+print(f"\nLoggin attempts: {users[0].loggin_attempts}")
+
+users[0].increment_loggin_attempts()
+users[0].increment_loggin_attempts()
+users[0].increment_loggin_attempts()
+print(f"\nLoggin attempts: {users[0].loggin_attempts}")
+
+users[0].reset_loggin_attempts()
+print(f"loggin attempts: {users[0].loggin_attempts}")
