@@ -35,13 +35,13 @@ users = [User('alina', 'chernish', 'alicher', '150', 'alina@gmail.com'),
          User('vlad', 'romanov', 'romashka', '152', 'vlad@gmail.com')]
 
 
-users[0].describe_user()
-print(f"\nLoggin attempts: {users[0].loggin_attempts}")
+users[2].describe_user()
+print(f"\nLoggin attempts: {users[2].loggin_attempts}")
 
-users[0].increment_loggin_attempts()
-users[0].increment_loggin_attempts()
-users[0].increment_loggin_attempts()
-print(f"\nLoggin attempts: {users[0].loggin_attempts}")
+users[2].increment_loggin_attempts()
+users[2].increment_loggin_attempts()
+users[2].increment_loggin_attempts()
+print(f"\nLoggin attempts: {users[2].loggin_attempts}")
 
-users[0].reset_loggin_attempts()
-print(f"loggin attempts: {users[0].loggin_attempts}")
+users[2].reset_loggin_attempts()
+print(f"loggin attempts: {users[2].loggin_attempts}")
