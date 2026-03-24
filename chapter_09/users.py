@@ -28,12 +28,34 @@ class User():
 
     def reset_loggin_attempts(self):
         self.loggin_attempts = 0
+
+        
+class Admin(User):
+    def __init__(self, first_name, last_name, username, id, mail):
+        super().__init__(first_name, last_name, username, id, mail)
+
+        self.privileges = []
+
+    def show_privilages(self):
+        print("\nAdmin has next privilages:")
+        for privelage in self.privileges:
+            print(f" - {privelage}")
+    
         
 
 users = [User('alina', 'chernish', 'alicher', '150', 'alina@gmail.com'),
          User('andrii', 'popov', 'andriP', '151', 'andrii@gmail.com'),
          User('vlad', 'romanov', 'romashka', '152', 'vlad@gmail.com')]
 
+andrii = Admin('andrii', 'popov', 'andriipopov', '1', 'andrii@gmail.com')
+andrii.describe_user()
+
+andrii.privileges = [
+    'can add post',
+    'can delete post', 
+    'can ban user'
+]
+andrii.show_privilages()
 
 users[2].describe_user()
 print(f"\nLoggin attempts: {users[2].loggin_attempts}")
