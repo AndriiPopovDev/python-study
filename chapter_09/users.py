@@ -1,5 +1,4 @@
 class User():
-    
     def __init__(self,
                 first_name,
                 last_name,
@@ -33,15 +32,21 @@ class User():
 class Admin(User):
     def __init__(self, first_name, last_name, username, id, mail):
         super().__init__(first_name, last_name, username, id, mail)
+        self.privileges = Privilege()
 
-        self.privileges = []
 
-    def show_privilages(self):
-        print("\nAdmin has next privilages:")
-        for privelage in self.privileges:
-            print(f" - {privelage}")
+class Privilege():
+    def __init__(self, privileges=[]):
+        self.privileges = privileges
+
+    def show_privileges(self):
+        print("\nPrivileges:")
+        if self.privileges:
+            for privilege in self.privileges:
+                print(f" - {privilege}")
+        else:
+            print("This user hasn't any privilages")
     
-        
 
 users = [User('alina', 'chernish', 'alicher', '150', 'alina@gmail.com'),
          User('andrii', 'popov', 'andriP', '151', 'andrii@gmail.com'),
@@ -50,12 +55,18 @@ users = [User('alina', 'chernish', 'alicher', '150', 'alina@gmail.com'),
 andrii = Admin('andrii', 'popov', 'andriipopov', '1', 'andrii@gmail.com')
 andrii.describe_user()
 
-andrii.privileges = [
+
+andrii.privileges.show_privileges()
+print("\nAdding privilages...")
+
+andrii_privileges = [
     'can add post',
     'can delete post', 
     'can ban user'
 ]
-andrii.show_privilages()
+andrii.privileges.privileges = andrii_privileges
+andrii.privileges.show_privileges()
+
 
 users[2].describe_user()
 print(f"\nLoggin attempts: {users[2].loggin_attempts}")
