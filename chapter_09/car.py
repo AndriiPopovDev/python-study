@@ -1,3 +1,5 @@
+"""A class that can be use to represent a car"""
+
 class Car():
     """A simple attempt to represent a car."""
 
@@ -74,15 +76,15 @@ class Battery:
                 print("Your battery already update!")
         
     
+if __name__ == "__main__":
+    my_new_car = Car('audi', 'a4', 2016)
+    tesla = ElectricCar('tesla', 'model s', 2016)
+    leaf = ElectricCar('nissan', 'leaf', 2024)
 
-my_new_car = Car('audi', 'a4', 2016)
-tesla = ElectricCar('tesla', 'model s', 2016)
-leaf = ElectricCar('nissan', 'leaf', 2024)
-
-print(my_new_car.get_descriptive_name()) 
-print(tesla.get_descriptive_name())
-tesla.battery.describe_battery()
-leaf.battery.describe_battery()
-leaf.battery.get_range()
-leaf.battery.upgrade_battery()
-leaf.battery.describe_battery()
+    print(my_new_car.get_descriptive_name()) 
+    print(tesla.get_descriptive_name())
+    tesla.battery.describe_battery()
+    leaf.battery.describe_battery()
+    leaf.battery.get_range()
+    leaf.battery.upgrade_battery()
+    leaf.battery.describe_battery()
