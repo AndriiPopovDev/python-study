@@ -1,3 +1,5 @@
+import electric_car
+
 """A class that can be use to represent a car"""
 
 class Car():
@@ -34,52 +36,12 @@ class Car():
         self.odometer_reading += miles
 
 
-class ElectricCar(Car):
-    """Represent aspects of a car, specific to electric vehicles"""
-    def __init__(self, make, model, year):
-        """
-        Initialize attributes of the parent class
-        Tnan initialize specific attributes for the electric car
-        """
-        super().__init__(make, model, year)
-        self.battery = Battery()
-
-    def fill_gas_tank(self):
-        """Electric cars don't have a gas tank"""
-        print("This car doesn't have a gas tank")
-
-    
-class Battery:
-        """A simple attempt to model a battery for an electric car"""
-        def __init__(self, battery_size=40):
-            """Initialize the battery attributes"""
-            self.battery_size = battery_size
-
-        def describe_battery(self):
-            """Print a statement to describe the battery size"""
-            print(f"Battery size: {self.battery_size}-kW battery")
-
-        def get_range(self):
-            """Print a statement about the range this battery provides"""
-            if self.battery_size == 40:
-                range = 150
-            elif self.battery_size == 65:
-                range = 225
-
-            print(f"This car can go about {range} miles on a full charge")
-                
-        def upgrade_battery(self):
-            if self.battery_size == 40:
-                self.battery_size = 65
-                print("\nUpgraded the battery to 65kWh")
-            else:
-                print("Your battery already update!")
-        
+       
     
 if __name__ == "__main__":
     my_new_car = Car('audi', 'a4', 2016)
-    tesla = ElectricCar('tesla', 'model s', 2016)
-    leaf = ElectricCar('nissan', 'leaf', 2024)
+    tesla = electric_car.ElectricCar('tesla', 'model s', 2016)
+    leaf = electric_car.ElectricCar('nissan', 'leaf', 2024)
 
     print(my_new_car.get_descriptive_name()) 
     print(tesla.get_descriptive_name())
