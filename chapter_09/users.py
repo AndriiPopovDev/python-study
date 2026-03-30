@@ -27,27 +27,10 @@ class User():
 
     def reset_loggin_attempts(self):
         self.loggin_attempts = 0
-
         
-class Admin(User):
-    def __init__(self, first_name, last_name, username, id, mail):
-        super().__init__(first_name, last_name, username, id, mail)
-        self.privileges = Privilege()
+   
 
-
-class Privilege():
-    def __init__(self, privileges=[]):
-        self.privileges = privileges
-
-    def show_privileges(self):
-        print("\nPrivileges:")
-        if self.privileges:
-            for privilege in self.privileges:
-                print(f" - {privilege}")
-        else:
-            print("This user hasn't any privilages")
-    
-
+"""
 if __name__ == "__main__":
     users = [User('alina', 'chernish', 'alicher', '150', 'alina@gmail.com'),
             User('andrii', 'popov', 'andriP', '151', 'andrii@gmail.com'),
@@ -79,3 +62,5 @@ if __name__ == "__main__":
 
     users[2].reset_loggin_attempts()
     print(f"loggin attempts: {users[2].loggin_attempts}")
+
+"""
