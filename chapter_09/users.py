@@ -32,7 +32,7 @@ class User():
 class Admin(User):
     def __init__(self, first_name, last_name, username, id, mail):
         super().__init__(first_name, last_name, username, id, mail)
-        self.privileges = Privilege()
+        self.privilege = Privilege()
 
 
 class Privilege():
@@ -48,33 +48,34 @@ class Privilege():
             print("This user hasn't any privilages")
     
 
-users = [User('alina', 'chernish', 'alicher', '150', 'alina@gmail.com'),
-         User('andrii', 'popov', 'andriP', '151', 'andrii@gmail.com'),
-         User('vlad', 'romanov', 'romashka', '152', 'vlad@gmail.com')]
+if __name__ == "__main__":
+    users = [User('alina', 'chernish', 'alicher', '150', 'alina@gmail.com'),
+            User('andrii', 'popov', 'andriP', '151', 'andrii@gmail.com'),
+            User('vlad', 'romanov', 'romashka', '152', 'vlad@gmail.com')]
 
-andrii = Admin('andrii', 'popov', 'andriipopov', '1', 'andrii@gmail.com')
-andrii.describe_user()
-
-
-andrii.privileges.show_privileges()
-print("\nAdding privilages...")
-
-andrii_privileges = [
-    'can add post',
-    'can delete post', 
-    'can ban user'
-]
-andrii.privileges.privileges = andrii_privileges
-andrii.privileges.show_privileges()
+    andrii = Admin('andrii', 'popov', 'andriipopov', '1', 'andrii@gmail.com')
+    andrii.describe_user()
 
 
-users[2].describe_user()
-print(f"\nLoggin attempts: {users[2].loggin_attempts}")
+    andrii.privileges.show_privileges()
+    print("\nAdding privilages...")
 
-users[2].increment_loggin_attempts()
-users[2].increment_loggin_attempts()
-users[2].increment_loggin_attempts()
-print(f"\nLoggin attempts: {users[2].loggin_attempts}")
+    andrii_privileges = [
+        'can add post',
+        'can delete post', 
+        'can ban user'
+    ]
+    andrii.privileges.privileges = andrii_privileges
+    andrii.privileges.show_privileges()
 
-users[2].reset_loggin_attempts()
-print(f"loggin attempts: {users[2].loggin_attempts}")
+
+    users[2].describe_user()
+    print(f"\nLoggin attempts: {users[2].loggin_attempts}")
+
+    users[2].increment_loggin_attempts()
+    users[2].increment_loggin_attempts()
+    users[2].increment_loggin_attempts()
+    print(f"\nLoggin attempts: {users[2].loggin_attempts}")
+
+    users[2].reset_loggin_attempts()
+    print(f"loggin attempts: {users[2].loggin_attempts}")
