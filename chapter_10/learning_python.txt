@@ -1,0 +1,3 @@
+I've learn functions, how to create class and work with import and modules
+Now I'm learning how to work with pathlib and his modules
+I'm glad to learn python reading PyCrash
