@@ -1,24 +1,21 @@
 from pathlib import Path
 
-path = Path('guest.txt')
+path = Path('guest_book.txt')
 
-flag = True
-content = ""
-print("U can stop programm typing 'n'")
-while flag:
-    answer = input("Hello, what's your name?: ")
-    if answer != 'n':
-        content += answer
-    elif answer == 'n':
-        path.write_text(content)
+prompt = "\nHi, what's your name?"
+prompt += "\nEnter 'quit' if u're the last person: "
+
+guest_book = []
+while True:
+    name = input(prompt)
+    if name == 'quit':
         break
+    
+    print(f"Thanks {name.title()}, we'll add you to the guest book")
+    guest_book.append(name)
 
-    while True:
-        answer = input("Do u have friends? His name is: ") 
-        if answer != 'n':
-            content += '\n'
-            content += answer
-        elif answer == 'n':
-            flag = False
-            path.write_text(content)
-            break
+file_string = ''
+for name in guest_book:
+    file_string += f"{name.title()}\n"
+
+path.write_text(file_string)
