@@ -1,0 +1,3 @@
+Hello world!
+I like programming
+I like play video games
